@@ -1,3 +1,5 @@
+Travis: 
+[![Build Status](https://travis-ci.org/bbonislawski/netguru-workshop-app.svg?branch=master)](https://travis-ci.org/bbonislawski/netguru-workshop-app)
 RoR Workshops
 ================
 
