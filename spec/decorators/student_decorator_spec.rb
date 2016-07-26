@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe StudentDecorator do
   let(:teacher) { create :teacher, first_name: 'John', last_name: 'Smith' }
-  let(:student) { create :student, first_name: 'John', last_name: 'Smith' }
+  let(:student) { create :student, first_name: 'John', last_name: 'Smith', birthdate: Date.parse('1994-10-02')  }
   let(:subject_item) { create :subject_item, teacher: teacher }
   let(:second_subject_item) { create :subject_item }
   let!(:note_1) { create :subject_item_note, value: 5, student: student, subject_item: second_subject_item }
@@ -27,6 +27,14 @@ describe StudentDecorator do
 
       it 'calculates avg of student notes' do
         is_expected.to eq '4.50'
+      end
+    end
+
+    describe 'when student has birthdate' do
+      subject { student.decorate.date_of_birth }
+
+      it 'return student birthdate in correct format' do
+        is_expected.to eq '1994-10_02'
       end
     end
   end
