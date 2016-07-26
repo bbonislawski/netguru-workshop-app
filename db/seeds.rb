@@ -2,28 +2,55 @@ puts "Seeds: start"
 TEACHER_TITLES = %w(Dr. Prof. TA)
 User.create!(email: 'admin@admin.com',password: 'adminadmin')
 
-30.times do
-  Teacher.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    academic_title: TEACHER_TITLES.sample
-  )
+[
+  { first_name: "Yukihiro", last_name: "Matsumoto", academic_title: "Prof." },
+  { first_name: "Guido", last_name: "van Rossum", academic_title: "Dr." },
+  { first_name: "Jose", last_name: "Valim", academic_title: "Dr." }
+].each do |attrs|
+  Teacher.create!(attrs)
 end
 
 teachers = Teacher.all
-20.times do
-  SubjectItem.create!(
-    title: Faker::Lorem.sentence,
-    teacher: teachers.sample
-  )
+[
+  { title: "Ruby", teacher: teachers.sample },
+  { title: "Python", teacher: teachers.sample },
+  { title: "Elixir", teacher: teachers.sample },
+  { title: "Javascript", teacher: teachers.sample },
+  { title: "Cobol", teacher: teachers.sample },
+].each do |attrs|
+  SubjectItem.create!(attrs)
 end
 
-40.times do
-  Student.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
-  )
+[
+  {first_name: "Diane", last_name: "Greer"},
+  {first_name: "Herman", last_name: "Townsend"},
+  {first_name: "Fannie", last_name: "Cobb"},
+  {first_name: "Ed", last_name: "Zimmerman"},
+  {first_name: "Pauline", last_name: "Lee"},
+  {first_name: "Harvey", last_name: "Owens"},
+  {first_name: "Rochelle", last_name: "Williamson"},
+  {first_name: "Kevin", last_name: "Tyler"},
+  {first_name: "Sylvester", last_name: "Washington"},
+  {first_name: "Wilfred", last_name: "Holmes"},
+  {first_name: "Salvatore", last_name: "Nichols"},
+  {first_name: "Arthur", last_name: "Pope"},
+  {first_name: "Colin", last_name: "Matthews"},
+  {first_name: "Fred", last_name: "Padilla"},
+  {first_name: "Scott", last_name: "Jackson"},
+  {first_name: "Shelley", last_name: "Pittman"},
+  {first_name: "Martha", last_name: "Morton"},
+  {first_name: "Brian", last_name: "Santiago"},
+  {first_name: "Leah", last_name: "George"},
+  {first_name: "Chris", last_name: "Bell"},
+  {first_name: "Ken", last_name: "Stewart"},
+  {first_name: "Isabel", last_name: "Warner"},
+  {first_name: "Francisco", last_name: "Higgins"},
+  {first_name: "Amelia", last_name: "Miller"},
+  {first_name: "Eduardo", last_name: "Wright"}
+].each do |attrs|
+  Student.create!(attrs)
 end
+
 
 students = Student.all
 SubjectItem.all.each do |subject_item|
