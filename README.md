@@ -1,5 +1,6 @@
 Travis: 
 [![Build Status](https://travis-ci.org/bbonislawski/netguru-workshop-app.svg?branch=master)](https://travis-ci.org/bbonislawski/netguru-workshop-app)
+Application on [heroku](https://serene-dawn-54668.herokuapp.com/)
 RoR Workshops
 ================
 
