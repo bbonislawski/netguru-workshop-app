@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :teachers
 
   resources :visitors, only: [:index]
+
+  scope :reports do
+    get 'subjects', to: 'reports#subjects', as: 'report_subjects'
+  end
 end
